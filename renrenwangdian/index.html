@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="人人网电影频道 - 复刻经典社交网络体验，汇集全网热门影视资源。提供高清电影在线观看、豆瓣评分查询、IMDb链接跳转及影迷社区影评互动。">
+    <meta name="keywords" content="人人网电影, 在线看电影, 影评社区, 豆瓣电影, 高清电影下载, 网络电影">
+    <title>人人网电影-经典社交网络上的影视聚合与影评社区</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #f0b90b; /* 经典人人黄 */
+            --secondary-color: #0084ff; /* 经典人人蓝 */
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #f5f7fa;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a.active {
+            color: var(--secondary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: #f0f2f5;
+            border-radius: 20px;
+            padding: 4px 12px;
+            width: 240px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 14px;
+            width: 100%;
+            color: var(--text-main);
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Hero 区域 */
+        .hero-section {
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            height: 360px;
+        }
+
+        .hero-main {
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            color: white;
+        }
+
+        .hero-main-content {
+            max-width: 60%;
+            z-index: 2;
+        }
+
+        .hero-main h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-main p {
+            font-size: 16px;
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background-color: #e0a80a;
+            transform: translateY(-1px);
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .hero-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .hero-card {
+            flex: 1;
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .hero-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            background: #e6f7ff;
+            color: var(--secondary-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* 主体内容区 */
+        .main-content {
+            margin-top: 32px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 24px;
+        }
+
+        /* 电影列表 */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .movie-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .poster-wrapper {
+            position: relative;
+            padding-top: 140%; /* 5:7 Aspect Ratio */
+            overflow: hidden;
+            background: #eee;
+        }
+
+        .poster-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .movie-card:hover .poster-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .rating-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .movie-info {
+            padding: 12px;
+        }
+
+        .movie-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .movie-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 侧边栏 */
+        .sidebar-widget {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-cloud a {
+            background: #f0f2f5;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .tag-cloud a:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background: #eee;
+            color: #666;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .rank-list li:nth-child(-n+3) .rank-num {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .rank-info {
+            flex: 1;
+        }
+
+        .rank-title {
+            font-size: 14px;
+            font-weight: 500;
+            display: block;
+        }
+
+        .rank-meta {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* 页脚 */
+        footer {
+            margin-top: 48px;
+            background: #2c3e50;
+            color: #bdc3c7;
+            padding: 40px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 13px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 900px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            .hero-main {
+                padding: 24px;
+            }
+            .hero-main-content {
+                max-width: 100%;
+            }
+            .hero-image {
+                display: none;
+            }
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            .search-bar {
+                width: 140px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span>人人网</span>电影
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">电影榜单</a>
+                <a href="#">电视剧集</a>
+                <a href="#">高分影评</a>
+                <a href="#">影迷社区</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索电影、演员...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- 首屏 Hero 区域 -->
+        <section class="hero-section">
+            <div class="hero-main">
+                <div class="hero-main-content">
+                    <span class="tag-pill">今日推荐</span>
+                    <h2>星际穿越：重映版</h2>
+                    <p>在虫洞的边缘探索时间的奥秘，诺兰执导的科幻史诗巨作，IMAX版本震撼登陆人人网电影。</p>
+                    <a href="#" class="btn btn-primary">立即观看</a>
+                </div>
+                <img src="https://picsum.photos/seed/interstellar/600/400" alt="星际穿越电影海报" class="hero-image">
+            </div>
+            <aside class="hero-sidebar">
+                <div class="hero-card">
+                    <span class="tag-pill" style="background:#ffebee; color:#e53935;">热门话题</span>
+                    <h3 style="margin-top:8px;">2024年度十大烂片</h3>
+                    <p>网友票选结果出炉，你心中的“年度雷片”是哪一部？</p>
+                    <a href="#" style="font-size:13px; color:var(--secondary-color);">查看榜单 &rarr;</a>
+                </div>
+                <div class="hero-card" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);">
+                    <span class="tag-pill" style="background:rgba(0,0,0,0.2); color:white;">影迷活动</span>
+                    <h3 style="margin-top:8px; color:#333;">周末观影会</h3>
+                    <p style="color:#555;">线下聚会，分享你的观影心得。</p>
+                    <a href="#" style="font-size:13px; color:var(--secondary-color); font-weight:bold;">报名参与 &rarr;</a>
+                </div>
+            </aside>
+        </section>
+
+        <!-- 主体内容 -->
+        <div class="main-content">
+            
+            <!-- 左侧：电影列表 -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">最新上映</h2>
+                    <div style="display:flex; gap:10px;">
+                        <a href="#" style="font-size:14px; color:var(--text-secondary);">全部</a>
+                        <a href="#" style="font-size:14px; color:var(--text-secondary);">动作</a>
+                        <a href="#" style="font-size:14px; color:var(--text-secondary);">喜剧</a>
+                        <a href="#" style="font-size:14px; color:var(--text-secondary);">科幻</a>
+                    </div>
+                </div>
+
+                <div class="movie-grid">
+                    <!-- 电影卡片 1 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">9.2</span>
+                            <img src="https://picsum.photos/seed/movie1/300/420" alt="电影海报">
+                        </div>
+                        <div class="movie-info">
+                            <h3 class="movie-title">奥本海默</h3>
+                            <div class="movie-meta">
+                                <span>2023</span>
+                                <span>3小时</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 电影卡片 2 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">8.8</span>
+                            <img src="https://picsum.photos/seed/movie2/300/420" alt="电影海报">
+                        </div>
+                        <div class="movie-info">
+                            <h3 class="movie-title">芭比</h3>
+                            <div class="movie-meta">
+                                <span>2023</span>
+                                <span>114分钟</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 电影卡片 3 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">9.0</span>
+                            <img src="https://picsum.photos/seed/movie3/300/420" alt="电影海报">
+                        </div>
+                        <div class="movie-info">
+                            <h3 class="movie-title">沙丘2</h3>
+                            <div class="movie-meta">
+                                <span>2024</span>
+                                <span>166分钟</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 电影卡片 4 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">7.5</span>
+                            <img src="https://picsum.photos/seed/movie4/300/420" alt="电影海报">
+                        </div>
+                        <div class="movie-info">
+                            <h3 class="movie-title">周处除三害</h3>
+                            <div class="movie-meta">
+                                <span>2023</span>
+                                <span>129分钟</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 电影卡片 5 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">8.1</span>
+                            <img src="https://picsum.photos/seed/movie5/300/420" alt="电影海报">
+                        </div>
+                        <div class="movie-info">
+                            <h3 class="movie-title">坠落的审判</h3>
+                            <div class="movie-meta">
+                                <span>2023</span>
+                                <span>152分钟</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 电影卡片 6 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">8.5</span>
+                            <img src="https://picsum.photos/seed/movie6/300/420" alt="电影海报">
+                        </div>
+                        <div class="movie-info">
+                            <h3 class="movie-title">周游记</h3>
+                            <div class="movie-meta">
+                                <span>2024</span>
+                                <span>90分钟</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 右侧：侧边栏 -->
+            <aside>
+                <!-- 分类标签云 -->
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">🏷️ 影片分类</h4>
+                    <div class="tag-cloud">
+                        <a href="#">动作片</a>
+                        <a href="#">爱情片</a>
+                        <a href="#">科幻片</a>
+                        <a href="#">悬疑片</a>
+                        <a href="#">恐怖片</a>
+                        <a href="#">喜剧片</a>
+                        <a href="#">动画</a>
+                        <a href="#">纪录片</a>
+                    </div>
+                </div>
+
+                <!-- 豆瓣高分榜 -->
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">🏆 豆瓣高分榜</h4>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-num">1</span>
+                            <div class="rank-info">
+                                <span class="rank-title">肖申克的救赎</span>
+                                <span class="rank-meta">剧情 / 犯罪</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">2</span>
+                            <div class="rank-info">
+                                <span class="rank-title">霸王别姬</span>
+                                <span class="rank-meta">剧情 / 爱情</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">3</span>
+                            <div class="rank-info">
+                                <span class="rank-title">阿甘正传</span>
+                                <span class="rank-meta">剧情 / 爱情</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <div class="rank-info">
+                                <span class="rank-title">泰坦尼克号</span>
+                                <span class="rank-meta">爱情 / 灾难</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <div class="rank-info">
+                                <span class="rank-title">千与千寻</span>
+                                <span class="rank-meta">动画 / 奇幻</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 使用帮助 -->
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">💡 使用指南</h4>
+                    <p style="font-size:13px; color:#666; line-height:1.8;">
+                        1. 点击电影海报即可播放。<br>
+                        2. 支持高清、蓝光画质切换。<br>
+                        3. 注册账号可收藏喜欢的影片。<br>
+                        4. 遇到卡顿请刷新页面或更换线路。
+                    </p>
+                </div>
+            </aside>
+        </div>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于人人网电影</h4>
+                    <p style="font-size:13px; line-height:1.6; opacity:0.8;">
+                        人人网电影致力于为用户提供最优质的观影体验。我们汇聚全网资源，打造最懂你的影视社区。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">播放器问题</a></li>
+                        <li><a href="#">注册登录</a></li>
+                        <li><a href="#">会员权益</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">豆瓣小组</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 人人网电影. All Rights Reserved. 本站内容均来自互联网，仅供学习交流使用。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                                  </html>
