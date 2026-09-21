@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>江苏省盐城市阜宁县 - 阜宁概况、旅游攻略与便民服务指南</title>
+    <meta name="description" content="江苏省盐城市阜宁县官方网站及综合门户，提供阜宁简介、历史文化、旅游景点（如金沙湖、马家荡）、特色美食、交通指南、政务服务及便民资讯，是了解阜宁、走进阜宁的首选平台。">
+    <meta name="keywords" content="江苏省盐城市阜宁县, 阜宁, 盐城阜宁, 金沙湖, 马家荡, 阜宁概况, 阜宁旅游, 阜宁特产, 阜宁新闻">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f0f4f8;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --accent-color: #d4a017;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f9fafb;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-size: 14px;
+            padding: 8px 0;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-main {
+            padding: 15px 0;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+            margin-left: 5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 86, 179, 0.6)), url('https://picsum.photos/seed/funingland/1600/600.jpg') center/cover no-repeat;
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #b38d12;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Quick Info Bar */
+        .info-bar {
+            background-color: var(--white);
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 15px;
+            border-right: 1px solid #eee;
+        }
+
+        .info-item:last-child {
+            border-right: none;
+        }
+
+        .info-item h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* News Section */
+        .news-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            display: flex;
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .news-img {
+            width: 240px;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .news-tag {
+            display: inline-block;
+            background-color: #e6f0ff;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .news-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-content p {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-meta {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 18px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .tour-list li {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 15px;
+        }
+
+        .tour-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tour-list h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .tour-list p {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-cloud a {
+            background-color: var(--secondary-color);
+            color: var(--text-gray);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .tag-cloud a:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--white);
+            padding: 60px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .feature-item p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Culture Section */
+        .culture {
+            padding: 60px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .culture-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .culture-text p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+
+        .culture-img {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .culture-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            color: var(--white);
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .grid-layout, .features-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .culture-img {
+                order: -1;
+            }
+            
+            .header-main .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .news-card {
+                flex-direction: column;
+            }
+            
+            .news-img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .info-bar {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <span>欢迎访问江苏省盐城市阜宁县</span>
+                <span>今日天气：多云 22°C | 欢迎您</span>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <a href="#" class="logo">
+                    阜宁门户 <span>Funing Portal</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">首页</a></li>
+                        <li><a href="#">走进阜宁</a></li>
+                        <li><a href="#">旅游攻略</a></li>
+                        <li><a href="#">特产美食</a></li>
+                        <li><a href="#">政务服务</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>江苏省盐城市阜宁县</h1>
+            <p>位于苏北平原，历史悠久，人杰地灵。这里有美丽的金沙湖、丰富的湿地资源以及深厚的文化底蕴，是您休闲度假、投资兴业的热土。</p>
+            <div>
+                <a href="#tour" class="btn">探索景点</a>
+                <a href="#news" class="btn btn-outline">最新资讯</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Bar -->
+    <div class="container">
+        <div class="info-bar">
+            <div class="info-item">
+                <h3>2,825</h3>
+                <p>平方公里</p>
+            </div>
+            <div class="info-item">
+                <h3>110万</h3>
+                <p>常住人口</p>
+            </div>
+            <div class="info-item">
+                <h3>1,045</h3>
+                <p>建县历史（年）</p>
+            </div>
+            <div class="info-item">
+                <h3>国家生态</h3>
+                <p>建设示范县</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content container" id="news">
+        <div class="section-title">
+            <h2>阜宁动态</h2>
+            <p>了解阜宁最新的发展、政策与民生资讯</p>
+        </div>
+
+        <div class="grid-layout">
+            <!-- Left Column: News List -->
+            <div class="news-list">
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/funing1/400/300.jpg" alt="阜宁城市建设" class="news-img">
+                    <div class="news-content">
+                        <span class="news-tag">城市建设</span>
+                        <h3>阜宁县全力推进“绿色盐城”建设，生态环境持续改善</h3>
+                        <p>近日，阜宁县加大生态环境治理力度，通过实施湿地修复、河道整治等项目，全县空气优良天数比例稳步提升，居民幸福感显著增强...</p>
+                        <div class="news-meta">发布时间：2023-10-25 | 来源：阜宁新闻网</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/funing2/400/300.jpg" alt="金沙湖旅游" class="news-img">
+                    <div class="news-content">
+                        <span class="news-tag">旅游资讯</span>
+                        <h3>金秋时节游金沙湖：赏荷、玩沙、品蟹，体验别样滨海风情</h3>
+                        <p>随着天气转凉，阜宁金沙湖景区迎来旅游小高峰。景区推出了多项优惠活动，游客可以尽情享受沙雕艺术、水上运动以及大闸蟹美食...</p>
+                        <div class="news-meta">发布时间：2023-10-24 | 来源：阜宁文旅局</div>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/funing3/400/300.jpg" alt="产业发展" class="news-img">
+                    <div class="news-content">
+                        <span class="news-tag">产业发展</span>
+                        <h3>阜宁经济开发区新签约项目集中开工，助力经济高质量发展</h3>
+                        <p>近日，阜宁经济开发区举行2023年第四季度项目集中开工仪式，总投资超50亿元的多个重点项目落地，将为全县产业转型升级注入新动能...</p>
+                        <div class="news-meta">发布时间：2023-10-23 | 来源：阜宁日报</div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <aside>
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">热门景点</h3>
+                    <ul class="tour-list">
+                        <li>
+                            <h4>金沙湖旅游度假区</h4>
+                            <p>国家4A级旅游景区，万亩湖面，沙雕艺术。</p>
+                        </li>
+                        <li>
+                            <h4>马家荡生态旅游区</h4>
+                            <p>水上森林，天然氧吧，生态湿地。</p>
+                        </li>
+                        <li>
+                            <h4>阜宁桃花源</h4>
+                            <p>现代农业示范区，四季花海，休闲采摘。</p>
+                        </li>
+                        <li>
+                            <h4>庙湾古城</h4>
+                            <p>历史街区，感受明清建筑风貌。</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">便民服务</h3>
+                    <div class="tag-cloud">
+                        <a href="#">政务大厅</a>
+                        <a href="#">交通出行</a>
+                        <a href="#">社保查询</a>
+                        <a href="#">公积金</a>
+                        <a href="#">教育考试</a>
+                        <a href="#">医疗健康</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>阜宁优势</h2>
+                <p>得天独厚的资源禀赋，优越的投资环境</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🌾</div>
+                    <h3>农业大县</h3>
+                    <p>素有“鱼米之乡”美誉，盛产优质大米、鲜藕、板鸭等农产品。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏭</div>
+                    <h3>工业强县</h3>
+                    <p>拥有精密机械、电子信息、新能源等主导产业，产业集群效应显著。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🚄</div>
+                    <h3>交通枢纽</h3>
+                    <p>京沪高速、盐靖高速穿境而过，高铁阜宁南站连接全国。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section class="culture">
+        <div class="container">
+            <div class="culture-grid">
+                <div class="culture-text">
+                    <h3>红色阜宁，人文荟萃</h3>
+                    <p>阜宁历史悠久，建县于公元949年，素有“淮乡明珠”之称。这里不仅是革命老区，也是淮剧之乡、散文之乡。历史上名人辈出，文化底蕴深厚。</p>
+                    <p>近年来，阜宁县深入挖掘红色文化资源，打造红色旅游品牌，同时大力发展文化产业，让传统文化与现代文明交相辉映。</p>
+                    <a href="#" class="btn">了解更多历史</a>
+                </div>
+                <div class="culture-img">
+                    <img src="https://picsum.photos/seed/funingculture/600/400.jpg" alt="阜宁文化">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">阜宁门户</a>
+                    <p>致力于为阜宁人民和广大游客提供最全面、最及时的地方资讯与服务指南。连接阜宁，展望未来。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">网站简介</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">广告服务</a></li>
+                        <li><a href="#">人才招聘</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务导航</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">政务公开</a></li>
+                        <li><a href="#">办事指南</a></li>
+                        <li><a href="#">互动交流</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">抖音号</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 阜宁门户 版权所有 | 江苏省盐城市阜宁县信息中心 技术支持</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
