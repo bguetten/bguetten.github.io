@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦想改造家-设计翻车案例与避坑指南</title>
+    <meta name="description" content="深度解析《梦想改造家》翻车案例，盘点设计失误、预算超支与施工问题，提供真实可靠的装修避坑指南与设计建议。">
+    <meta name="keywords" content="梦想改造家,设计翻车,装修避坑,装修案例,室内设计,电视节目">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .tags {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Article List */
+        .case-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .case-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .case-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #e0e0e0;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-cost {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        .badge-design {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .card-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            border-top: 1px solid #eee;
+            padding-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-more {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+        }
+
+        .problem-list {
+            list-style: none;
+        }
+
+        .problem-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .problem-list li:last-child {
+            border-bottom: none;
+        }
+
+        .problem-list a {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .problem-list a:hover {
+            color: var(--accent-color);
+        }
+
+        .problem-count {
+            font-size: 0.8rem;
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            padding: 60px 20px;
+            margin-top: 40px;
+        }
+
+        .faq-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .faq-item {
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            transition: border-color 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent-color);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 16px;
+            }
+
+            nav ul {
+                margin-top: 16px;
+                gap: 16px;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span>⚠️</span> 梦想改造家翻车档案
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">案例合集</a></li>
+                    <li><a href="#">避坑指南</a></li>
+                    <li><a href="#">设计师测评</a></li>
+                    <li><a href="#">装修论坛</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>《梦想改造家》翻车实录</h1>
+        <p>理性看待装修改造，盘点那些年我们追过的“梦想家”背后的设计硬伤与施工隐患，为您的装修之路提供真实参考。</p>
+        <div class="tags">
+            <span class="tag">预算超支</span>
+            <span class="tag">审美争议</span>
+            <span class="tag">功能缺失</span>
+            <span class="tag">施工质量</span>
+            <span class="tag">居住体验</span>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Main Content -->
+        <main class="case-list">
+            <article class="case-card">
+                <img src="https://picsum.photos/seed/house1/800/400" alt="某老旧小区翻车案例" class="card-image">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="badge badge-design">设计风格争议</span>
+                        <span class="badge badge-cost">预算严重超支</span>
+                        <time>2023-10-15</time>
+                    </div>
+                    <h2 class="card-title">某老旧小区“土味”改造：现代风变“农家乐”</h2>
+                    <p class="card-excerpt">
+                        本期改造旨在将一个采光极差的80年代老公房改造成现代简约风。然而最终成品却因为过度使用亮面瓷砖和错误的配色方案，导致空间显得压抑且廉价。业主入住后发现，原本设计的开放式厨房在实际使用中油烟问题严重，且储物空间完全无法满足一家三口的需求。
+                    </p>
+                    <div class="card-footer">
+                        <span style="font-size: 0.9rem; color: #888;">阅读剩余 60%</span>
+                        <a href="#" class="read-more">查看详情 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="case-card">
+                <img src="https://picsum.photos/seed/house2/800/400" alt="极小户型翻车案例" class="card-image">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="badge badge-design">极简主义陷阱</span>
+                        <span class="badge badge-cost">功能性缺失</span>
+                        <time>2023-10-12</time>
+                    </div>
+                    <h2 class="card-title">25平米极小户型：为了“高级感”牺牲了睡眠</h2>
+                    <p class="card-excerpt">
+                        设计师试图通过全屋定制和隐形门来打造“胶囊公寓”的高级感。结果导致卧室动线极其曲折，且窗户被大面积装饰性墙体遮挡。更严重的是，为了节省空间，床下没有留出足够的检修高度，日后维修将面临巨大困难。这种牺牲居住舒适度的“网红设计”值得深思。
+                    </p>
+                    <div class="card-footer">
+                        <span style="font-size: 0.9rem; color: #888;">阅读剩余 45%</span>
+                        <a href="#" class="read-more">查看详情 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="case-card">
+                <img src="https://picsum.photos/seed/house3/800/400" alt="别墅翻车案例" class="card-image">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="badge badge-design">结构破坏</span>
+                        <span class="badge badge-cost">施工隐患</span>
+                        <time>2023-10-08</time>
+                    </div>
+                    <h2 class="card-title">老洋房改造：承重墙被敲，安全红线踩在脚下</h2>
+                    <p class="card-excerpt">
+                        在追求大落地窗和挑高空间的过程中，施工队违规拆除了部分非承重墙，甚至对承重结构进行了不规范的加固。这种操作不仅破坏了房屋原有的抗震性能，还导致了墙体开裂和渗水问题。此类案例再次敲响了房屋结构安全的警钟。
+                    </p>
+                    <div class="card-footer">
+                        <span style="font-size: 0.9rem; color: #888;">阅读剩余 80%</span>
+                        <a href="#" class="read-more">查看详情 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-widget">
+                <h3 class="widget-title">常见翻车类型</h3>
+                <ul class="problem-list">
+                    <li>
+                        <a href="#">预算失控，后期增项太多</a>
+                        <span class="problem-count">12例</span>
+                    </li>
+                    <li>
+                        <a href="#">风格与房屋结构不匹配</a>
+                        <span class="problem-count">8例</span>
+                    </li>
+                    <li>
+                        <a href="#">过度追求网红元素</a>
+                        <span class="problem-count">15例</span>
+                    </li>
+                    <li>
+                        <a href="#">水电改造不规范</a>
+                        <span class="problem-count">5例</span>
+                    </li>
+                    <li>
+                        <a href="#">收纳设计不合理</a>
+                        <span class="problem-count">9例</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">避坑小贴士</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 12px;">
+                    装修前务必确认设计方案是否符合房屋原始结构，不要盲目追求大落地窗或异形空间。
+                </p>
+                <p style="font-size: 0.9rem; color: #666;">
+                    选择设计师时，多看其过往案例的完工实景，而非效果图。沟通时明确预算上限。
+                </p>
+            </div>
+
+            <div class="sidebar-widget" style="background-color: #fff3cd; border: 1px solid #ffeeba;">
+                <h3 class="widget-title" style="border-color: #ffc107; color: #856404;">免责声明</h3>
+                <p style="font-size: 0.85rem; color: #856404;">
+                    本站内容仅供交流参考，部分案例来源于网络整理，旨在分析设计问题。装修有风险，改造需谨慎。
+                </p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-title">《梦想改造家》翻车常见问题</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">为什么《梦想改造家》里的房子看起来很美，但实际住起来很别扭？</div>
+                    <div class="faq-answer">
+                        主要是因为电视节目为了视觉冲击力，往往侧重于展示效果图和施工过程中的亮点，而忽视了居住的实用性、隐蔽工程的质量以及长期维护的便利性。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">遇到设计师承诺的“零增项”变成了巨额增项怎么办？</div>
+                    <div class="faq-answer">
+                        在装修合同中必须明确增项的范围和比例限制。一旦出现争议，保留好所有的沟通记录和变更单，必要时可寻求消费者协会或法律途径解决。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何避免装修翻车？</div>
+                    <div class="faq-answer">
+                        1. 明确自己的核心需求而非盲目跟风；2. 签订详细的施工合同；3. 定期到现场监督隐蔽工程；4. 避免在水电阶段使用劣质材料。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">网红装修风格（如奶油风、极简风）真的适合所有人吗？</div>
+                    <div class="faq-answer">
+                        并不适合。网红风格往往对采光、户型和清洁难度有较高要求。选择风格时应结合房屋本身的实际情况和家庭成员的生活习惯。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于本站</h3>
+                <p style="font-size: 0.9rem;">
+                    致力于收集和分析各类装修改造案例，特别是针对《梦想改造家》等热门节目中的争议性案例进行深度剖析，为观众提供理性的装修参考。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>栏目导航</h3>
+                <ul>
+                    <li><a href="#">案例大全</a></li>
+                    <li><a href="#">避坑指南</a></li>
+                    <li><a href="#">设计师黑名单</a></li>
+                    <li><a href="#">装修知识库</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>联系方式</h3>
+                <ul>
+                    <li><a href="#">投稿建议</a></li>
+                    <li><a href="#">合作洽谈</a></li>
+                    <li><a href="#">用户协议</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 梦想改造家翻车档案网. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
