@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="刚背兽攻略：详细介绍DOTA2英雄刚背兽的出装推荐、技能加点、连招技巧、对线思路及团战打法，助你掌握这位坦克英雄。">
+    <meta name="keywords" content="刚背兽, DOTA2攻略, 刚背兽出装, 刚背兽加点, DOTA2英雄">
+    <title>刚背兽-DOTA2英雄攻略与实战指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Sections */
+        section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Skill Tree Visualization */
+        .skill-tree {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .skill-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .skill-lvl {
+            font-weight: bold;
+            width: 30px;
+            color: var(--accent-color);
+        }
+
+        .skill-name {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .skill-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Build Cards */
+        .build-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .build-card {
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .build-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-color: var(--accent-color);
+        }
+
+        .build-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .item-list {
+            list-style: none;
+        }
+
+        .item-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .item-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        /* Sidebar */
+        aside .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #eee;
+        }
+
+        .sidebar-widget h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .stat-list {
+            list-style: none;
+        }
+
+        .stat-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+        }
+
+        .stat-value {
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 0.5rem;
+            color: var(--text-secondary);
+            display: none;
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-item .faq-question::after {
+            content: "+";
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>◆</span> DOTA2攻略库
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">英雄大全</a></li>
+                    <li><a href="#">出装推荐</a></li>
+                    <li><a href="#">视频教学</a></li>
+                    <li><a href="#">数据查询</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>刚背兽</h1>
+            <p>拥有坚硬铠甲与强力冲撞的坦克英雄，既能开团又能吸收成吨伤害。</p>
+        </div>
+    </div>
+
+    <div class="container content-grid">
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Overview -->
+            <section>
+                <h2 class="section-title">英雄简介</h2>
+                <p>刚背兽是一位力量型英雄，拥有极高的生命值和护甲。他的被动技能“硬毛”让他在受到攻击时能反弹伤害，配合“荆棘鞭笞”可以造成高额物理伤害。他的大招“脊背进击”不仅能提供移动速度加成，还能对路径上的敌人造成持续伤害和减速，是绝佳的开团与追击手段。</p>
+                <br>
+                <p><strong>定位：</strong> 坦克 / 前排 / 控场</p>
+                <p><strong>擅长：</strong> 团战切入、吸收伤害、保护后排</p>
+            </section>
+
+            <!-- Skill Build -->
+            <section>
+                <h2 class="section-title">技能加点与加点思路</h2>
+                <div class="skill-tree">
+                    <div class="skill-row">
+                        <span class="skill-lvl">1</span>
+                        <span class="skill-name">针刺冲刺</span>
+                        <span class="skill-desc">主要位移技能，用于追击或逃生，初期点满。</span>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-lvl">2</span>
+                        <span class="skill-name">硬毛</span>
+                        <span class="skill-desc">核心防御技能，随等级提升增加反弹伤害和护甲。</span>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-lvl">3</span>
+                        <span class="skill-name">荆棘鞭笞</span>
+                        <span class="skill-desc">提供攻击距离和攻速，配合被动造成高额伤害。</span>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-lvl">4</span>
+                        <span class="skill-name">脊背进击</span>
+                        <span class="skill-desc">大招，提供移动速度加成和范围伤害/减速。</span>
+                    </div>
+                </div>
+                <br>
+                <p><strong>加点顺序建议：</strong> 1级点针刺冲刺，2级点硬毛，3级点荆棘鞭笞。主升针刺冲刺和硬毛，有大点大。后期点满荆棘鞭笞。</p>
+            </section>
+
+            <!-- Item Build -->
+            <section>
+                <h2 class="section-title">主流出装推荐</h2>
+                <div class="build-grid">
+                    <article class="build-card">
+                        <h3>核心肉装</h3>
+                        <ul class="item-list">
+                            <li><strong>先锋盾：</strong> 提供生命值和抵挡伤害，增加赖线能力。</li>
+                            <li><strong>挑战头巾：</strong> 抵御法术伤害，增加魔抗，核心保命装。</li>
+                            <li><strong>刃甲：</strong> 反伤效果与刚背兽的被动完美契合。</li>
+                        </ul>
+                    </article>
+                    <article class="build-card">
+                        <h3>推进与输出</h3>
+                        <ul class="item-list">
+                            <li><strong>动力鞋：</strong> 提供移动速度，方便切入战场。</li>
+                            <li><strong>散华/散夜对剑：</strong> 增加攻击距离，提升刺针冲刺的命中率。</li>
+                            <li><strong>希瓦的守护：</strong> 减速敌人，配合大招留人。</li>
+                        </ul>
+                    </article>
+                    <article class="build-card">
+                        <h3>后期神装</h3>
+                        <ul class="item-list">
+                            <li><strong>希瓦的守护</strong> + <strong>血精石</strong> + <strong>龙心</strong></li>
+                            <li><strong>希瓦的守护</strong> + <strong>强袭胸甲</strong> + <strong>撒旦之邪力</strong></li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Gameplay Tips -->
+            <section>
+                <h2 class="section-title">实战技巧与注意事项</h2>
+                <ul style="padding-left: 20px; line-height: 1.8; color: var(--text-secondary);">
+                    <li><strong>刺针冲刺的使用：</strong> 刺针冲刺可以穿过树林和单位。在Gank时，利用冲刺穿过树林绕后，可以出其不意地切入敌方后排。在逃跑时，可以利用冲刺穿过树林制造逃生机会。</li>
+                    <li><strong>大招释放时机：</strong> 脊背进击在释放时会有短暂的延迟。建议在团战开始前或敌人技能交完后的第一时间开启，利用加速效果直接撞向敌方核心英雄。</li>
+                    <li><strong>被动反伤机制：</strong> 刚背兽的硬毛反弹伤害是真实伤害，这意味着敌人打你越疼，反弹给他们的伤害越高。在面对高爆发刺客时，硬毛是最大的克星。</li>
+                    <li><strong>视野控制：</strong> 作为坦克，你需要时刻关注野区视野，利用刺针冲刺抢夺敌方野怪，并防止对方打野英雄反蹲。</li>
+                </ul>
+            </section>
+        </main>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-widget">
+                <h3>英雄属性</h3>
+                <ul class="stat-list">
+                    <li><span class="stat-label">力量</span><span class="stat-value">23 + 3.0</span></li>
+                    <li><span class="stat-label">敏捷</span><span class="stat-value">18 + 2.0</span></li>
+                    <li><span class="stat-label">智力</span><span class="stat-value">15 + 1.5</span></li>
+                    <li><span class="stat-label">移动速度</span><span class="stat-value">290</span></li>
+                    <li><span class="stat-label">攻击距离</span><span class="stat-value">128</span></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>常见问题 (FAQ)</h3>
+                <div class="faq-item">
+                    <div class="faq-question">刚背兽前期对线怕谁？</div>
+                    <div class="faq-answer">刚背兽前期比较怕高爆发的远程英雄（如影魔、狙击手），因为硬毛虽然能反伤，但血量不足时容易被秒杀。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">刺针冲刺可以穿人吗？</div>
+                    <div class="faq-answer">可以。刺针冲刺是一个位移技能，可以穿过英雄和单位，是刚背兽绕后开团的关键技巧。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">刚背兽适合打1号位吗？</div>
+                    <div class="faq-answer">不太适合。刚背兽缺乏稳定的控制技能和清线能力，通常作为3号位或4号位，负责吸收伤害和开团。</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 DOTA2英雄攻略库. 本站内容仅供学习交流使用.</p>
+            <p>DOTA 2 is a registered trademark of Valve Corporation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ toggle logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
