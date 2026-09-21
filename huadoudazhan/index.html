@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="花都大战官方资料站，提供作品介绍、角色图鉴、剧情解析及同人创作交流平台。">
+    <meta name="keywords" content="花都大战, 漫画, 漫画推荐, 漫画资讯, 动漫">
+    <title>花都大战-热门都市漫画推荐与深度剧情解析</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --accent-color: #f1faee;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--bg-body);
+            border-radius: 20px;
+            padding: 5px 15px;
+            width: 250px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #457b9d 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #d62839;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 350px;
+            background-color: #ddd;
+            border-radius: var(--border-radius);
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .hero-image::after {
+            content: "点击阅读";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.6);
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .hero-image:hover::after {
+            opacity: 1;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: white;
+            padding: 20px 0;
+            margin-bottom: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            gap: 20px;
+        }
+
+        .stat-item h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Section Styles */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .section-title a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Comic Grid */
+        .comic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .comic-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid #eee;
+        }
+
+        .comic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .card-cover {
+            width: 100%;
+            height: 240px;
+            background-color: #eee;
+            position: relative;
+        }
+        
+        .card-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-tags span {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            color: var(--text-light);
+            margin-right: 5px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        /* Info Layout */
+        .info-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .info-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .info-content h3 {
+            margin: 30px 0 15px;
+            color: var(--secondary-color);
+        }
+
+        .sidebar-box {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+            height: fit-content;
+        }
+
+        .sidebar-box h4 {
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .character-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 10px;
+        }
+
+        .char-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #eee;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            display: none;
+            padding-left: 20px;
+            border-left: 3px solid #eee;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h5 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .info-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+            
+            .search-box {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">花都<span>大战</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#chapter">章节列表</a></li>
+                    <li><a href="#info">作品简介</a></li>
+                    <li><a href="#characters">角色图鉴</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索章节或角色...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>花都大战：都市情缘与热血对决</h1>
+                    <p>跟随主角的脚步，探索繁华都市背后的爱恨纠葛与隐藏势力。本站提供高清正版章节更新、角色深度解析及同人创作交流。</p>
+                    <a href="#chapter" class="btn">立即阅读最新章节</a>
+                </div>
+                <div class="hero-image" style="background-image: url('https://picsum.photos/seed/comichero/600/400.jpg');"></div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <div class="container">
+            <div class="stats-bar">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>120+</h3>
+                        <p>连载章节</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50w+</h3>
+                        <p>累计阅读</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>98%</h3>
+                        <p>读者好评</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>每日</h3>
+                        <p>准时更新</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest Chapters -->
+        <section class="container" id="chapter">
+            <div class="section-title">
+                <h2>最新章节</h2>
+                <a href="#">查看全部 &rarr;</a>
+            </div>
+            <div class="comic-grid">
+                <!-- Card 1 -->
+                <article class="comic-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/ch1/300/400.jpg" alt="花都大战封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">第142章 突如其来的变故</h3>
+                        <div class="card-tags">
+                            <span>热血</span>
+                            <span>都市</span>
+                        </div>
+                        <div class="card-meta">
+                            <span>2天前更新</span>
+                            <span>12.5万阅读</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 2 -->
+                <article class="comic-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/ch2/300/400.jpg" alt="花都大战封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">第141章 暗流涌动</h3>
+                        <div class="card-tags">
+                            <span>剧情</span>
+                            <span>悬疑</span>
+                        </div>
+                        <div class="card-meta">
+                            <span>3天前更新</span>
+                            <span>10.2万阅读</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 3 -->
+                <article class="comic-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/ch3/300/400.jpg" alt="花都大战封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">第140章 误会加深</h3>
+                        <div class="card-tags">
+                            <span>情感</span>
+                            <span>恋爱</span>
+                        </div>
+                        <div class="card-meta">
+                            <span>5天前更新</span>
+                            <span>9.8万阅读</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 4 -->
+                <article class="comic-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/ch4/300/400.jpg" alt="花都大战封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">第139章 决战前夕</h3>
+                        <div class="card-tags">
+                            <span>动作</span>
+                            <span>爽文</span>
+                        </div>
+                        <div class="card-meta">
+                            <span>1周前更新</span>
+                            <span>15万阅读</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 5 -->
+                <article class="comic-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/ch5/300/400.jpg" alt="花都大战封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">第138章 调查线索</h3>
+                        <div class="card-tags">
+                            <span>侦探</span>
+                            <span>推理</span>
+                        </div>
+                        <div class="card-meta">
+                            <span>1周前更新</span>
+                            <span>8.5万阅读</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 6 -->
+                <article class="comic-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/ch6/300/400.jpg" alt="花都大战封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">第137章 新的对手</h3>
+                        <div class="card-tags">
+                            <span>战斗</span>
+                            <span>竞技</span>
+                        </div>
+                        <div class="card-meta">
+                            <span>2周前更新</span>
+                            <span>11万阅读</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Info & Sidebar -->
+        <section class="container" id="info">
+            <div class="info-layout">
+                <div class="info-content">
+                    <h2>作品简介</h2>
+                    <p>《花都大战》是一部融合了都市生活、职场博弈与热血战斗的现代题材漫画作品。故事发生在一个看似平静实则暗流涌动的繁华都市——花都。</p>
+                    <p>主角林风，一个怀揣梦想的普通青年，意外卷入了一场涉及跨国财阀与地下势力的巨大漩涡。在经历了一系列的误解、背叛与生死考验后，他逐渐揭开隐藏在都市霓虹背后的黑暗真相。</p>
+                    <h3>故事看点</h3>
+                    <p>作品节奏紧凑，爽点密集。作者以细腻的笔触刻画了都市中形形色色的人物，从唯利是图的商人到重情重义的兄弟，从神秘莫测的幕后黑手到温柔体贴的邻家女孩，构建了一个丰富立体的世界观。读者不仅能体验到主角逆袭成长的快感，还能感受到在复杂人际关系中寻找真我的过程。</p>
+                    <h3>阅读指南</h3>
+                    <p>本站提供正版阅读渠道，支持高清流畅的阅读体验。建议读者从最新章节开始阅读，以便更好地理解剧情发展。同时，我们在评论区设有讨论区，欢迎读者分享看法，共同探讨剧情走向。</p>
+                </div>
+                <aside>
+                    <div class="sidebar-box" id="characters">
+                        <h4>主要角色</h4>
+                        <ul class="character-list">
+                            <li>
+                                <div class="char-avatar" style="background-image: url('https://picsum.photos/seed/char1/50/50.jpg'); background-size: cover;"></div>
+                                <div>
+                                    <strong>林风</strong>
+                                    <div style="font-size: 0.8rem; color: #888;">男主角 / 决战者</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="char-avatar" style="background-image: url('https://picsum.photos/seed/char2/50/50.jpg'); background-size: cover;"></div>
+                                <div>
+                                    <strong>苏雅</strong>
+                                    <div style="font-size: 0.8rem; color: #888;">女主角 / 商业千金</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="char-avatar" style="background-image: url('https://picsum.photos/seed/char3/50/50.jpg'); background-size: cover;"></div>
+                                <div>
+                                    <strong>赵天霸</strong>
+                                    <div style="font-size: 0.8rem; color: #888;">反派 / 地下霸主</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="char-avatar" style="background-image: url('https://picsum.photos/seed/char4/50/50.jpg'); background-size: cover;"></div>
+                                <div>
+                                    <strong>老王</strong>
+                                    <div style="font-size: 0.8rem; color: #888;">配角 / 资深侦探</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">《花都大战》在哪里可以看？</div>
+                    <div class="faq-answer">您可以通过本站首页的章节列表进行阅读，支持手机端和电脑端访问，无需下载APP。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">更新频率是怎样的？</div>
+                    <div class="faq-answer">我们承诺每周更新2-3章，节假日会视情况调整，请关注站内公告。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">可以转载或分享吗？</div>
+                    <div class="faq-answer">欢迎分享给朋友，但未经授权禁止直接转载到其他平台。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何反馈阅读问题？</div>
+                    <div class="faq-answer">请点击页面底部的联系方式或发送邮件至 support@huadazhan.com。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h5>关于花都大战</h5>
+                    <p style="font-size: 0.9rem; color: #ccc; line-height: 1.8;">
+                        致力于为读者提供最优质的都市题材漫画阅读体验。我们专注于挖掘优秀作品，打造专业的漫画社区。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>快速导航</h5>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">章节列表</a></li>
+                        <li><a href="#">排行榜</a></li>
+                        <li><a href="#">作者专区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>帮助中心</h5>
+                    <ul>
+                        <li><a href="#">阅读指南</a></li>
+                        <li><a href="#">投稿说明</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>订阅更新</h5>
+                    <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 10px;">订阅我们的推送，不错过每一章更新</p>
+                    <div style="display: flex; gap: 5px;">
+                        <input type="email" placeholder="您的邮箱" style="padding: 8px; border-radius: 4px; border: none; width: 100%;">
+                        <button style="padding: 8px 15px; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer;">订阅</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 花都大战官方资料站. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    // Close others
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+                                  </html>
